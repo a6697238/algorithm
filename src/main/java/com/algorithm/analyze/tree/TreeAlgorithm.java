@@ -1,6 +1,5 @@
 package com.algorithm.analyze.tree;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -58,7 +57,6 @@ public class TreeAlgorithm {
         return leftNum + rightNum + 1;
     }
 
-
     public static int getKNum(TreeNode root, int k) {
         if (null == root) {
             return 0;
@@ -89,18 +87,6 @@ public class TreeAlgorithm {
         return root;
 
     }
-    public static void printLevel(TreeNode root,List<List<TreeNode>> list,int level){
-        if(root==null){
-            return;
-        }
-        if(level >= list.size()){
-            list.add(new ArrayList<TreeNode>());
-        }
-
-        list.get(level).add(root);
-        printLevel(root.left,list,level+1);
-        printLevel(root.right,list,level+1);
-    }
 
     public static void main(String[] args) {
         TreeNode r1 = new TreeNode(1);
@@ -122,22 +108,8 @@ public class TreeAlgorithm {
 //        System.out.println(getDepthRec(r1));
 //        System.out.println(getTreeNum(r1));
 //        System.out.println(getLeafNum(r1));
-//        System.out.println(getKNum(r1,1));
-//        System.out.println(getCommonNode(r1,r5,r7).count);
-//        System.out.println(getMaxDistanceRec(r1).maxDistance);
-//        List<List<TreeNode>> lists = new ArrayList<List<TreeNode>>();
-//        printLevel(r1,lists,0);
-//        for(List<TreeNode> treeNodeList : lists){
-//            for(TreeNode treeNode : treeNodeList){
-//                System.out.print(treeNode.count);
-//            }
-//            System.out.println();
-//        }
-
-
+//                System.out.println(getKNum(r1,1));
+//          System.out.println(getCommonNode(r1,r5,r7).count);
+        System.out.println(getMaxDistanceRec(r1).maxDistance);
     }
-
-
-
-
 }

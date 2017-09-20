@@ -37,8 +37,6 @@ public class FastSort {
             }
         }
         array[i] = flag;
-        System.out.println(Arrays.toString(array));
-
         sort(array,low,i-1);
         sort(array,i+1,high);
     }

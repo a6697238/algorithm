@@ -10,33 +10,32 @@ package com.algorithm.analyze.dynamic;
  */
 public class MaxSubArray {
 
-    public static int maxSubArray(int[] array){
-        if (array.length==0 || array==null) {
-            return 0;
-        }
-        int currentSum = 0;     //存储当前连续n项的和
-        int max = 0;            //存储连续子元素和的最大值
-        for (int i = 0; i < array.length; i++) {
-            //核心部分，好好理解.
-            if(currentSum<=0){      //如过当前连续n项的和小于等于0,则没必要与后面的元素相加
-                currentSum = array[i];      //currentSum重新赋值
-            }else{
-                currentSum += array[i];     //如果currentSum的值大于0,则继续与后面的元素相加,
+    public static String maxSubArray(int[] array){
+        int maxSum = 0;
+        int currentSum = 0;
+        int start = 0;
+        int length = 0;
+        for(int i=0;i<array.length;i++){
+            if(array[i]+currentSum>array[i]){
+                currentSum = currentSum + array[i];
+                length ++;
+            }else {
+                currentSum = array[i];
+                start = i;
+                length = 0;
             }
-            if(currentSum>max){         //每次改变currentSum的值都有与max进行比较
-                max = currentSum;       //如果currentSum的值大于max,则将currentSum的值赋值给max
+            if(currentSum>maxSum){
+                maxSum = currentSum;
             }
         }
-        System.out.println(max);
-        return max;
-}
+        for(int i=start;i<start+length;i++){
+            System.out.print(array[i]+",");
+        }
+        return "";
+    }
 
 
     public static void main(String[] args) {
-//        int[] array = {6,-3,-2,7,-15,1,2,2};
-        int[] array = {1,-2,3};
-
-        int result = maxSubArray(array);
-        System.out.println("连续子元素的最大和为："+result);
+        maxSubArray(new int[]{1, -2, 3, 10, -4, 7, 2, -5});
     }
 }
