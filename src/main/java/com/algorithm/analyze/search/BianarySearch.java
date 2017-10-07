@@ -28,6 +28,6 @@ public class BianarySearch {
 
     public static void main(String[] args) {
         int[] array = new int[]{1,2,3,6,7,8,9};
-        System.out.println(search(array,3,0,array.length-1));
+        System.out.println(search(array,1,0,array.length-1));
     }
 }
