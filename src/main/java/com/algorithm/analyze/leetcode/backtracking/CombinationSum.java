@@ -1,4 +1,4 @@
-package com.algorithm.analyze.leetcode.array;
+package com.algorithm.analyze.leetcode.backtracking;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,21 +8,20 @@ import java.util.List;
  * @author Lu Hou
  * @date 2017/10/7
  * @time 下午11:15
- *
- *
+ * <p>
+ * <p>
  * leetCode 39 题
  * https://leetcode.com/problems/combination-sum/description/
- *
+ * <p>
  * 回溯算法，深度优先搜索
- *
- *                  root
- *       2        3         6      7
- *   2  3  6 7   3 6 7    6   7
- *   。。。。。
- *   。。。。。
- *
- *   回溯一条路径
- *
+ * <p>
+ * root
+ * 2        3         6      7
+ * 2  3  6 7   3 6 7    6   7
+ * 。。。。。
+ * 。。。。。
+ * <p>
+ * 回溯一条路径
  */
 public class CombinationSum {
     public static void main(String[] args) {
@@ -42,12 +41,12 @@ public class CombinationSum {
         List<List<Integer>> resultList = new ArrayList<List<Integer>>();
         List<Integer> res = new ArrayList<Integer>();
         Arrays.sort(candidates);
-        findChild(target, 0, resultList, res, candidates);
+        backTracking(target, 0, resultList, res, candidates);
         return resultList;
     }
 
 
-    public static void findChild(int target, int start, List<List<Integer>> resultList, List<Integer> res, int[] candidates) {
+    public static void backTracking(int target, int start, List<List<Integer>> resultList, List<Integer> res, int[] candidates) {
         if (target < 0) {
             return;
         }
@@ -57,11 +56,9 @@ public class CombinationSum {
         }
 
         for (int i = start; i < candidates.length; i++) {
-            if (target >= candidates[i]) {
-                res.add(candidates[i]);
-                findChild(target - candidates[i], start, resultList, res, candidates);
-                res.remove(res.size() - 1);
-            }
+            res.add(candidates[i]);
+            backTracking(target - candidates[i], i, resultList, res, candidates);
+            res.remove(res.size() - 1);
         }
 
 
