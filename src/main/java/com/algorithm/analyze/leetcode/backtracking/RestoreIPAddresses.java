@@ -11,7 +11,7 @@ import java.util.List;
 public class RestoreIPAddresses {
 
     public static void main(String[] args) {
-        List<String> ipStrList = restoreIpAddresses("172162541");
+        List<String> ipStrList = restoreIpAddresses("172062541");
         for (String str : ipStrList) {
             System.out.println(str);
         }
