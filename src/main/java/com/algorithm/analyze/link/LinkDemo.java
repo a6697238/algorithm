@@ -1,5 +1,7 @@
 package com.algorithm.analyze.link;
 
+import com.algorithm.analyze.leetcode.list.ListNode;
+
 /**
  * 类名称: LinkDemo <br>
  * 类描述: <br>
@@ -21,6 +23,26 @@ public class LinkDemo {
         linkNode.next = null;
         return reHead;
     }
+
+    public static LinkNode reverseListUn(LinkNode linkNode){
+
+        // 如果链表为空或只有一个节点，无需反转，直接返回原链表表头
+        if (linkNode == null || linkNode.next == null) {
+            return linkNode;
+        }
+
+        LinkNode reHead = null;         // 反转后新链表指针
+        LinkNode cur = linkNode;
+
+        while (cur != null) {
+            LinkNode preCur = cur;      // 用preCur保存住对要处理节点的引用
+            cur = cur.next;             // cur更新到下一个节点
+            preCur.next = reHead;   // 更新要处理节点的next引用
+            reHead = preCur;            // reHead指向要处理节点的前一个节点
+        }
+        return reHead;
+    }
+
 
     public static LinkNode mergeLink(LinkNode linkNode1,LinkNode linkNode2){
         if(null==linkNode1){
@@ -76,7 +98,8 @@ public class LinkDemo {
 
 
 //        prinList(linkNode1);
-        printList(reverseList(linkNode1));
+//        printList(reverseList(linkNode1));
+        printList(reverseListUn(linkNode1));
 //        printList(mergeLink(linkNode1,linkNode2));
 //        reversePrint(linkNode1);
 //        printList(mergeList(linkNode1,linkNode2));

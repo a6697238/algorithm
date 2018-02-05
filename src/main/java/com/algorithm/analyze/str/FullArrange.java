@@ -6,12 +6,10 @@ import java.util.List;
 
 /**
  * @author Lu Hou
- * @date 2018/1/11
- * @time 上午10:23
  */
 public class FullArrange {
 
-    public static void arrange(char[] array, int start){
+        public static void arrange(char[] array, int start){
         if (start == array.length-1) {
             System.out.println(Arrays.toString(array));
         } else {
@@ -23,14 +21,15 @@ public class FullArrange {
         }
     }
 
-    public static void swap(char[] array,int i,int j){
+
+    public static void swap(char[] array, int i, int j) {
         char temp = array[i];
-        array[i] =  array[j];
+        array[i] = array[j];
         array[j] = temp;
     }
 
     public static void main(String[] args) {
         String str = "abc";
-        arrange(str.toCharArray(),0);
+        arrange(str.toCharArray(), 0);
     }
 }

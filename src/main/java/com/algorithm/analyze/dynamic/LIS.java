@@ -30,6 +30,7 @@ public class LIS {
 
     }
 
+
     public static void main(String[] args) {
         int[] array = new int[]{1,4,5,7,2,1,3,2,1};
         System.out.println(getLisNum(array));

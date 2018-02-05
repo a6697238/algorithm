@@ -10,32 +10,25 @@ package com.algorithm.analyze.dynamic;
  */
 public class MaxSubArray {
 
-    public static String maxSubArray(int[] array){
-        int maxSum = 0;
+    public static int maxSubArray(int[] nums){
+        int maxSum = -Integer.MAX_VALUE;
         int currentSum = 0;
-        int start = 0;
-        int length = 0;
-        for(int i=0;i<array.length;i++){
-            if(array[i]+currentSum>array[i]){
-                currentSum = currentSum + array[i];
-                length ++;
+        for(int i=0;i<nums.length;i++){
+            if(currentSum<0){
+                currentSum = nums[i];
             }else {
-                currentSum = array[i];
-                start = i;
-                length = 0;
+                currentSum = currentSum + nums[i];
             }
-            if(currentSum>maxSum){
+            if(maxSum<currentSum){
                 maxSum = currentSum;
             }
         }
-        for(int i=start;i<start+length;i++){
-            System.out.print(array[i]+",");
-        }
-        return "";
+        return maxSum;
     }
 
 
+
     public static void main(String[] args) {
-        maxSubArray(new int[]{1, -2, 3, 10, -4, 7, 2, -5});
+        System.out.println(maxSubArray(new int[]{1, -2, 3, 10, -4, 7, 2, -5,6}));
     }
 }

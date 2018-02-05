@@ -24,7 +24,7 @@ public class BianarySearch {
         }
     }
 
-    public static int search(int[] array, int target) {
+        public static int search(int[] array, int target) {
         int h = array.length - 1;
         int l = 0;
         while (l<=h) {
@@ -39,6 +39,7 @@ public class BianarySearch {
         }
         return -1;
     }
+
 
     public static void main(String[] args) {
         int[] array = new int[] {1, 2, 3, 6, 7, 8, 9};

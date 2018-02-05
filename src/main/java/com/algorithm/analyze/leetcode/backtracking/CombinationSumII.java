@@ -6,17 +6,12 @@ import java.util.List;
 
 /**
  * @author Lu Hou
- * @date 2017/10/8
- * @time 下午1:39
- *
- *
- *
  */
 public class CombinationSumII {
 
     public static void main(String[] args) {
 
-        List<List<Integer>> res = combinationSum2(new int[]{10, 1,1, 2, 7, 6, 5}, 8);
+        List<List<Integer>> res = combinationSum2(new int[] {10, 1, 1, 2, 7, 6, 5}, 8);
         for (List<Integer> list : res) {
             for (Integer i : list) {
                 System.out.print(i);
@@ -30,9 +25,10 @@ public class CombinationSumII {
         List<List<Integer>> resultList = new ArrayList<List<Integer>>();
         List<Integer> res = new ArrayList<Integer>();
         Arrays.sort(candidates);
-        backTracking(target,0,resultList,res,candidates);
+        backTracking(target, 0, resultList, res, candidates);
         return resultList;
     }
+
 
     public static void backTracking(int target, int start, List<List<Integer>> resultList, List<Integer> res, int[] candidates) {
         if (target == 0) {
