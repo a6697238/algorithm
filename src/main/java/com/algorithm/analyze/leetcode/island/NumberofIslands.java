@@ -50,23 +50,11 @@ public class NumberofIslands {
             dfs(i - 1, j, array);
             dfs(i, j + 1, array);
             dfs(i, j - 1, array);
-            print(array);
-            System.out.println("---------------------");
         }
     }
 
     public static boolean isValid(int i, int j, char[][] array) {
         return i < array.length && i >= 0 && j < array[0].length && j >= 0;
-    }
-
-    public static void print(char[][] array){
-        for(int i=0;i<array.length;i++){
-            for(int j=0;j<array[0].length;j++){
-//                String uniCodeTemp = Integer.toHexString(array[i][j]);
-                System.out.print(array[i][j]);
-            }
-            System.out.println();
-        }
     }
 
 }

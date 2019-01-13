@@ -21,6 +21,8 @@ public class Permutations {
 
 
 
+
+
     public static void arrange(List<List<Integer>> result,int[] nums,int start){
         if(start==nums.length-1){
             List list = new ArrayList();

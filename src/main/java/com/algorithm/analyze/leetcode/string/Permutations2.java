@@ -10,7 +10,7 @@ import java.util.List;
 public class Permutations2 {
 
     public static void main(String[] args) {
-        permuteUnique(new int[]{2, 2, 1,1});
+        permuteUnique(new int[]{1, 1, 2});
     }
 
     public static List<List<Integer>> permuteUnique(int[] nums) {
@@ -30,7 +30,9 @@ public class Permutations2 {
             System.out.println(Arrays.toString(nums));
         } else {
             for (int i = start; i < nums.length; i++) {
-                if (nums[i] != nums[start] || i==start) {
+                if (isUsed(nums, start, i)) {
+                    continue;
+                } else {
                     swap(nums, start, i);
                     arrange(result, nums, start + 1);
                     swap(nums, start, i);
@@ -43,6 +45,15 @@ public class Permutations2 {
         int temp = nums[i];
         nums[i] = nums[j];
         nums[j] = temp;
+    }
+
+    public static boolean isUsed(int[] num, int start, int j) {
+        for (int i = start; i < j; i++) {
+            if (num[i] == num[j]) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

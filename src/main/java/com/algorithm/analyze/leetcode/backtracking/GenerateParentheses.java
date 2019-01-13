@@ -11,51 +11,20 @@ import java.util.Stack;
  */
 public class GenerateParentheses {
 
-    public static void main(String[] args) {
-        helper(4,new ArrayList<String>(),new StringBuilder());
-    }
 
-    public List<String> generateParenthesis(int n) {
-        List<String> list = new ArrayList<String>();
-        helper(n*2,list,new StringBuilder());
-        return list;
+    public static List<String> generateParenthesis(int n) {
+        List<String> res = new ArrayList<String>();
+        helper(n, n, "", res);
+        return res;
     }
-
-    public static void helper(int n,List<String> result,StringBuilder sb){
-        if(sb.length()==n&&isOk(sb.toString())){
-            result.add(sb.toString());
-            System.out.println(sb.toString());
-        }else if(sb.length()<n){
-            sb.append("(");
-            helper(n,result,sb);
-            sb.delete(sb.length()-1,sb.length());
-            sb.append(")");
-            helper(n,result,sb);
-            sb.delete(sb.length()-1,sb.length());
+    public static void helper(int left, int right, String out, List<String> res) {
+        if (left < 0 || right < 0 || left > right) return;
+        if (left == 0 && right == 0) {
+            res.add(out);
+            return;
         }
-    }
-
-    public static boolean isOk(String parentThese){
-        Stack<Character> stack = new Stack();
-        char[] strArray = parentThese.toCharArray();
-        int num=0;
-        for(int i=0;i<parentThese.length();i++){
-            char temp = strArray[i];
-            if('('==temp){
-                stack.push(temp);
-            }else {
-                if(!stack.isEmpty()&&'('==stack.peek()){
-                    stack.pop();
-                }else {
-                    return false;
-                }
-            }
-        }
-        if(stack.isEmpty()){
-            return true;
-        }else {
-            return false;
-        }
+        helper(left - 1, right, out + "(", res);
+        helper(left, right - 1, out + ")", res);
     }
 
 }
