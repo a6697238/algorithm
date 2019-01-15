@@ -11,57 +11,43 @@ import java.util.List;
 public class PermutationSequence {
 
     public static void main(String[] args) {
-        getPermutation(3,3);
+        getPermutation(4,9);
     }
 
     public static String getPermutation(int n, int k) {
-       return toAnalyze(n,k);
+        return getArrange(n).get(k-1);
     }
 
-    public static String toAnalyze(int n, int k) {
-        int count = 1;
-        for(int i=1;i<n;i++){
-            count = count*i;
+    public static List<String> getArrange(int n) {
+        List<String> res = new ArrayList<String>();
+        int[] array = new int[n];
+        for (int i = 0; i < n; i++) {
+            array[i] = i + 1;
         }
-        int start = k/count;
-        System.out.println(start);
-        return "0";
+        helper(res, 0, array);
+        return res;
     }
 
-
-
-    /**
-     * 回溯算法
-     * @param n
-     * @param k
-     * @return
-     */
-    public static String toBackTracking(int n,int k){
-        char[] nums = new char[n];
-        List<String> resultList = new ArrayList<String>();
-        backTracking(nums,0,resultList,"");
-        for(String strr:resultList){
-            System.out.println(strr);
-        }
-
-        return resultList.get(k-1);
-    }
-
-    public static void backTracking(char[] nums, int start, List<String> resultList, String res) {
-        if (start == nums.length) {
-            resultList.add(res);
-            return;
-        }
-        for (int i = 0; i < nums.length; i++) {
-            if(nums[i]==0){
-                nums[i] = 1;
-                res = res + String.valueOf(i+1);
-                backTracking(nums, start + 1, resultList, res);
-                res = res.substring(0, res.length() - 1);
-                nums[i] = 0;
+    public static void helper(List<String> res, int start, int[] array) {
+        if (start == array.length) {
+            String str = "";
+            for (int i = 0; i < array.length; i++) {
+                str = str + array[i];
             }
-
+            res.add(str);
+        } else {
+            for (int i = start; i < array.length; i++) {
+                swap(i, start, array);
+                helper(res, start + 1, array);
+                swap(i, start, array);
+            }
         }
+    }
+
+    public static void swap(int i, int j, int[] array) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
 
 }
