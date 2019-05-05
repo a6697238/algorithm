@@ -10,7 +10,7 @@ package com.algorithm.analyze.leetcode.dp;
 public class UniquePaths {
 
     public static void main(String[] args) {
-        uniquePaths(3, 2);
+        System.out.println(uniquePaths(3, 2));
     }
 
     public static int uniquePaths(int m, int n) {

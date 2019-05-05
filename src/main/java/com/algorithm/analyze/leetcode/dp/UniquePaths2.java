@@ -10,6 +10,7 @@ package com.algorithm.analyze.leetcode.dp;
 public class UniquePaths2 {
 
 
+
     public static int uniquePathsWithObstacles(int[][] obstacleGrid) {
         if (obstacleGrid.length == 0 || obstacleGrid[0].length == 0) {
             return 0;
