@@ -22,6 +22,9 @@ public class LCS {
                     if(i==0||j==0){
                         state[i][j] = 1;
                     }else {
+
+
+
                         state[i][j] = state[i-1][j-1]+1;
                     }
                 }

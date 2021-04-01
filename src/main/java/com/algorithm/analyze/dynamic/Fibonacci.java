@@ -33,10 +33,11 @@ public class Fibonacci {
     }
 
     public static void main(String[] args) {
-        for(int i=0;i<100;i++){
-            System.out.print("递归:" + getNumRec(i));
-            System.out.print("  非递归:" + getNum(i));
-            System.out.println();
-        }
+//        for(int i=0;i<100;i++){
+//            System.out.print("递归:" + getNumRec(i));
+//            System.out.print("  非递归:" + getNum(i));
+//            System.out.println();
+//        }
+        System.out.println("ab".charAt(1));
     }
 }

@@ -26,7 +26,7 @@ import java.util.List;
 public class CombinationSum {
     public static void main(String[] args) {
 
-        List<List<Integer>> res = combinationSum(new int[]{2, 3, 6, 7}, 7);
+        List<List<Integer>> res = combinationSum(new int[]{1,1,2, 3, 6, 7}, 7);
         for (List<Integer> list : res) {
             for (Integer i : list) {
                 System.out.print(i);
