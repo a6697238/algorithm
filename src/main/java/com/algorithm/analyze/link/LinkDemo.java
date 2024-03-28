@@ -1,6 +1,8 @@
 package com.algorithm.analyze.link;
 
 import com.algorithm.analyze.leetcode.list.ListNode;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 类名称: LinkDemo <br>
@@ -11,10 +13,11 @@ import com.algorithm.analyze.leetcode.list.ListNode;
  * @since 17/7/12 下午2:37
  */
 public class LinkDemo {
+    
 
 
-    public static LinkNode reverseList(LinkNode linkNode){
-        if(null==linkNode||null==linkNode.next){
+    public static LinkNode reverseList(LinkNode linkNode) {
+        if (null == linkNode || null == linkNode.next) {
             return linkNode;
         }
 
@@ -24,7 +27,7 @@ public class LinkDemo {
         return reHead;
     }
 
-    public static LinkNode reverseListUn(LinkNode linkNode){
+    public static LinkNode reverseListUn(LinkNode linkNode) {
 
         // 如果链表为空或只有一个节点，无需反转，直接返回原链表表头
         if (linkNode == null || linkNode.next == null) {
@@ -44,38 +47,38 @@ public class LinkDemo {
     }
 
 
-    public static LinkNode mergeLink(LinkNode linkNode1,LinkNode linkNode2){
-        if(null==linkNode1){
+    public static LinkNode mergeLink(LinkNode linkNode1, LinkNode linkNode2) {
+        if (null == linkNode1) {
             return linkNode2;
         }
 
-        if(null==linkNode2){
+        if (null == linkNode2) {
             return linkNode1;
         }
         LinkNode reHead = null;
-        if(linkNode1.count<linkNode2.count){
+        if (linkNode1.count < linkNode2.count) {
             reHead = linkNode1;
-            reHead.next = mergeLink(linkNode1.next,linkNode2);
-        }else {
+            reHead.next = mergeLink(linkNode1.next, linkNode2);
+        } else {
             reHead = linkNode2;
-            reHead.next = mergeLink(linkNode1,linkNode2.next);
+            reHead.next = mergeLink(linkNode1, linkNode2.next);
         }
         return reHead;
     }
 
-    public static void reversePrint(LinkNode linkNode){
-        if(linkNode==null){
+    public static void reversePrint(LinkNode linkNode) {
+        if (linkNode == null) {
             return;
-        }else {
+        } else {
             reversePrint(linkNode.next);
-            System.out.print(linkNode.count+"----");
+            System.out.print(linkNode.count + "----");
         }
     }
 
 
-    public static void printList(LinkNode linkNode){
-        while (linkNode.next!=null){
-            System.out.print(linkNode.count+"---");
+    public static void printList(LinkNode linkNode) {
+        while (linkNode.next != null) {
+            System.out.print(linkNode.count + "---");
             linkNode = linkNode.next;
         }
         System.out.print(linkNode.count);
@@ -94,8 +97,6 @@ public class LinkDemo {
         linkNode2.next = linkNode3;
         linkNode3.next = linkNode4;
         linkNode4.next = linkNode5;
-
-
 
 //        prinList(linkNode1);
 //        printList(reverseList(linkNode1));
